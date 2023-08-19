@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="myDIV" class="header">
+    <h1> <%= kindOfDay %></h1>
+    <h2 style="margin:5px">My To Do List</h2>
+    <form action="/" method="post">
+        <input type="text" placeholder="new item" name="newItem">
+        <button type="submit" name="button" value="<%= kindOfDay %>" class="addBtn">Add</button>
+    </form>
+    </div>
+    <div class = "box">
+        <% for(let i = 0;i<newListItems.length;i++){ %>
+            <form action="/delete" method="post">
+            <div class="item">
+                <input type="checkbox" name = "checkbox" value ="<%=newListItems[i]._id%>"onchange="this.form.submit()">
+                <h3> <%= newListItems[i].name %> </h3>
+            </div>
+            <input type="hidden" name="listName" value="<%= kindOfDay %>"></input>
+            </form>
+        <% } %>
+    </div>
+    
+</body>
+</html>
