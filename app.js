@@ -5,6 +5,7 @@ const ejs = require('ejs');
 const PORT = process.env.PORT || 3000;
 
 
+
 app.set("view engine","ejs")
 
 app.use(express.static("public"));
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 const mongoose = require('mongoose');
 mongoose.set('strictQuery',false);
 // const User = require("./user");
-mongoose.connect('mongodb+srv://Shivam_Gupta_:Ehc3pNGucnUgIxgP@cluster0.9c7rjya.mongodb.net/?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(MONGO_URL,{useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
