@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 const ejs = require('ejs');
+const PORT = process.env.PORT || 3000;
 
 
 app.set("view engine","ejs")
@@ -171,10 +172,7 @@ app.post("/delete",function(req,res){
   
 })
 
-app.listen(3000,function(){
+app.listen(PORT,function(){
     console.log("server running at local host 3000");
 });
 
-// cufhkVx1bNSNvHDj
-// mongoose.connect('mongodb://127.0.0.1:27017/todolistDB',
-// Ehc3pNGucnUgIxgP
